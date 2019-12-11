@@ -3,13 +3,10 @@
 // Series of npm packages that we will use to give our server useful functionality
 // ==============================================================================
 
-
+const path = require('path');
 const express = require("express");
-const path = require("path")
 // Tells node that we are creating an "express" server
 const app = express();
-
-//const bodyParser = require("body-parser");
 
 
 // Sets an initial port. We"ll use this later in our listener
@@ -24,7 +21,9 @@ const PORT = process.env.PORT || 8080;
  app.use(express.urlencoded({extended:true})); 
  app.use(express.json()); 
 
-app.use(express.static(path.join(__dirname, 'app/public')));
+app.use(express.static(path.resolve(__dirname, 'public')));
+
+
 
  // ================================================================================
 // ROUTER
@@ -33,9 +32,9 @@ app.use(express.static(path.join(__dirname, 'app/public')));
 // ================================================================================
 
 
-require("./friendfinder/app/routing/api-routes")(app); 
+require("./routing/api-routes")(app); 
 
-require("./friendfinder/app/routing/html-routes")(app); 
+require("./routing/html-routes")(app); 
 // =============================================================================
 // LISTENER
 // The below code effectively "starts" our server

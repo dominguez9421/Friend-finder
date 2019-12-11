@@ -33,7 +33,7 @@ module.exports = function (app) {
     // ---------------------------------------------------------------------------
 
 
-    // POST route to /api/friends (This is used to handle incoming survey results and compatability logic)
+    // POST route to /api/friends 
     app.post("/api/friends", function (req, res) {
 
         // API POST Requests
@@ -51,7 +51,7 @@ module.exports = function (app) {
                 scoresArr.push(scoreDiff);
             }
 
-            // loop through ours scoresArr
+            // loop through scoresArr
             for (var i = 0; i < scoresArr.length; i++) {
                 if (scoresArr[i] <= scoresArr[bestMatch]) {
                     bestMatch = i;
