@@ -36,8 +36,6 @@ module.exports = function (app) {
     // POST route to /api/friends 
     app.post("/api/friends", function (req, res) {
 
-        // API POST Requests
-        app.post("/api/friends", function (req, res) {
             let userScore = req.body.scores;
             const scoresArr = [];
             let bestMatch = 0;
@@ -73,5 +71,5 @@ module.exports = function (app) {
                 ok: true
             });
         });
-    });
+    
 };
